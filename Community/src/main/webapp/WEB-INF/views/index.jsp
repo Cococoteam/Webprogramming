@@ -52,6 +52,9 @@
     $("#join").click(function(){
     	location.href="/home"
     })
+    $("#login").click(function(){
+    	location.href="/login"
+    })
     
     </script>
     </body>

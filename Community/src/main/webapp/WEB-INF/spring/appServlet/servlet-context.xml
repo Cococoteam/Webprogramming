@@ -9,6 +9,10 @@
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
+	<!-- annotation 붙어있는 클래스는 자동으로 Spring bean으로 생성 -->
+	<context:component-scan base-package="com.maple.community">
+	   <!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
+	</context:component-scan>
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
