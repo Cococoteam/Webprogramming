@@ -2,7 +2,6 @@ package com.maple.community.model;
 
 import org.apache.ibatis.type.Alias;
 
-
 @Alias("member")
 public class MemberModel {
 
