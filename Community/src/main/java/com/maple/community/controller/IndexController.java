@@ -1,20 +1,13 @@
 package com.maple.community.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.maple.community.model.MemberModel;
 import com.maple.community.service.MemberServiceImpl;
@@ -52,8 +45,26 @@ public class IndexController {
 		return "example";
 	}
 
+	//TODO 세션으로 메인페이지 접근하는법 알아보기
 	@RequestMapping("/login")
-	public void login() {
+	public ModelAndView login(MemberModel model) {
+		
+		//loginResult id,passwd 해당되는 값이 존재하면 mav result 값에 true 넣어 전달
+		ModelAndView mav = new ModelAndView("loginResult");
+		model = memberservice.login(model);
+		if(model != null){
+			mav.addObject("result", true);
+		}
+		else{
+			mav.addObject("result", false);
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping("/main")
+	public String main(){
+		return "main";
 	}
 
 	@RequestMapping("/")
@@ -62,8 +73,9 @@ public class IndexController {
 		return "index";
 	}
 
-	@RequestMapping("/join")
 	// 회원가입 처리
+	// TODO 시간남으면 비밀번호확인 로직 구현
+	@RequestMapping("/join")
 	public String join(HttpServletRequest request,MemberModel model) {
 		System.out.println(model.getId()+model.getName()+model.getPasswd());
 		if (memberservice.join(model)) {

@@ -25,29 +25,31 @@
         </div>
         
         <div class='col-md-5' style='padding:0px;' ><!--로그인div-->
-         <form action="/join" class="form-signin" role="form" method="post">
-            <div class='col-md-9'><!--로그인-->
-                <input type='text' class='form-control' id="id" style='width:100%; margin: 90px 0px 0px 0px;' placeholder='학번'>
-                <input type='password' class='form-control' id="password" style='width:100%; margin: 2% 0% 3% 0%' placeholder='비밀번호'>
-                <div class="checkbox" style='margin:0% 0% 5% 0%'>
-                    <label>
-                        <input type="checkbox" value="">
-                            자동 로그인
-                    </label>
+            <form action="/login" method="post">
+                <div class='col-md-9'><!--로그인-->
+                    <input type='text' class='form-control' name="id" id="id" style='width:100%; margin: 100px 0px 0px 0px;' placeholder='학번'>
+                    <input type='password' class='form-control' name="passwd" id="password" style='width:100%; margin: 2% 0% 3% 0%' placeholder='비밀번호'>
+                    <div class="checkbox" style='margin:0% 0% 5% 0%'>
+                        <label><input type="checkbox" value="">아이디 기억</label>
+                    </div>
                 </div>
+                <div class='col-md-3'>
+                    <button type="submit" class="btn btn-primary" style="width:90px; height:70px; margin: 100px 0px 0px -20px;">로그인</button>
+                </div>              
+            </form>
             
+            <form action="/join" method="post">
             <!--회원가입-->
-                <input type='text' class='form-control' name="name" id="name" style='width:100%; margin: 100px 0px 0px 0px;' placeholder='이름'>
-                <input type='text' class='form-control' name="id" id="id" style='width:100%; margin: 2% 0% 0% 0%;' placeholder='학번'>
-                <input type='password' class='form-control' name="passwd" id="passwd" style='width:100%; margin: 2% 0% 0% 0%' placeholder='비밀번호'>
-                <input type='password' class='form-control' name="passwd1" id="passwd" style='width:100%; margin: 2% 0% 0% 0%' placeholder='비밀번호 확인'>
-            </div>
-            <div class='col-md-3'><!--버튼-->
-            
-                <button type="button" id="login" class="btn btn-primary" style="width:90px; height:70px; margin: 90px 0px 0px -20px;">로그인</button>
-            
-                <button type="submit" id="join" class="btn btn-primary" style="width:90px; height:70px; margin: 140px 0px 0px -20px;">회원가입</button>
-            </div>
+            <!-- TODO 시간되면 비밀번호 구현하기  -->
+                <div class='col-md-9'>
+                    <input type='text' class='form-control' name="name" id="id" style='width:100%; margin: 80px 0px 0px 0px;' placeholder='이름'>
+                    <input type='text' class='form-control' name="id" id="id" style='width:100%; margin: 2% 0% 0% 0%;' placeholder='학번'>
+                    <input type='password' class='form-control' name="passwd" id="password" style='width:100%; margin: 2% 0% 0% 0%' placeholder='비밀번호'>
+                    <input type='password' class='form-control' id="password" style='width:100%; margin: 2% 0% 0% 0%' placeholder='비밀번호 확인'>
+                </div>
+                <div class='col-md-3'>
+                    <button type="submit" class="btn btn-primary" style="width:90px; height:70px; margin: 80px 0px 0px -20px;">회원가입</button>
+                </div>
             </form>
         </div>
     </div>

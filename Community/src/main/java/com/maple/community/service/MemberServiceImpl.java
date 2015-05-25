@@ -32,6 +32,13 @@ public class MemberServiceImpl implements MemberService {
 		return memberdao.selectMemberById(id);
 	}
 	
+	//model 객체를 받아, id , passwd에 맞는 엔티티가 존재하는지 확인후 존재하면 반환 
+	//null 값이면 로그인 실패
+	@Override
+	public MemberModel login(MemberModel model) {
+		return memberdao.selectMember(model);
+	}
+	
 	
 	
 	

@@ -3,11 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberMapper">
-  <select id="selectMember"  resultType="member"> <!-- DAO 이름과 똑같이 매핑 id -->
-    SELECT *
-    FROM members
-    WHERE id = "root"
-  </select>
   
   <insert id="insertMember" parameterType="member"> <!-- 회원 추가 -->
     INSERT INTO
@@ -19,5 +14,12 @@
     SELECT COUNT(*)
     FROM members
     WHERE id = #{id}
+  </select>
+  
+  <select id="selectMember" resultType="member" parameterType="member">
+    SELECT *
+    FROM members
+    WHERE id = #{id}
+    AND passwd = #{passwd}
   </select>
 </mapper>
